@@ -25,3 +25,14 @@ ng build
 # create a header component
 ng g c header
 ```
+
+## Create a new module
+
+```bash
+# create a layout module
+ng g m layout
+# create a footer component
+ng g c layout/footer
+# export footer component
+# move header to layout module
+```
