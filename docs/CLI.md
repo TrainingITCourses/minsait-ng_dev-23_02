@@ -38,3 +38,13 @@ ng g c layout/footer
 # generate a copyright component
 ng g c layout/copyright
 ```
+
+## Create shared module
+
+```bash
+# create a shared module
+ng g m shared
+# create an exported link component
+ng g c shared/link --export
+# import module shared in layout module
+```
