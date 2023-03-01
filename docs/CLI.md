@@ -35,4 +35,6 @@ ng g m layout
 ng g c layout/footer
 # export footer component
 # move header to layout module
+# generate a copyright component
+ng g c layout/copyright
 ```
