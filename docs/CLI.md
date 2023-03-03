@@ -51,10 +51,18 @@ ng g c shared/link --export
 ng g c shared/activity-item --export
 ```
 
+## Routing
+
+```bash
+# create a home component
 ng g c home
+# create a contact component
 ng g c contact
-
+# create a lazy module
 ng g m about --routing
+# with its component
 ng g c about
-
+# create a lazy module with routing
 ng g m register --route=auth/register -m=app
+ng g m login --route=auth/login -m=app
+```
