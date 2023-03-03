@@ -50,3 +50,11 @@ ng g c shared/link --export
 # create an activity-item component
 ng g c shared/activity-item --export
 ```
+
+ng g c home
+ng g c contact
+
+ng g m about --routing
+ng g c about
+
+ng g m register --route=auth/register -m=app

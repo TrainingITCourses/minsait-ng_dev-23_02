@@ -1,10 +1,6 @@
 <app-header></app-header>
 <main>
-  <!-- {{ activities | json }} -->
-  <h3>Activities list</h3>
-  <li *ngFor="let activity of activities">
-    <!-- {{ activity | json }} -->
-    <app-activity-item [activity]="activity"></app-activity-item>
-  </li>
+  <router-outlet></router-outlet>
+  <!-- <app-home></app-home> -->
 </main>
 <app-footer></app-footer>
