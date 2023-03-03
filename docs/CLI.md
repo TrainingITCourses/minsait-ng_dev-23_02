@@ -66,3 +66,6 @@ ng g c about
 ng g m register --route=auth/register -m=app
 ng g m login --route=auth/login -m=app
 ```
+
+ng g s core/activities
+ng g m activities --route=activities -m=app
