@@ -47,4 +47,6 @@ ng g m shared
 # create an exported link component
 ng g c shared/link --export
 # import module shared in layout module
+# create an activity-item component
+ng g c shared/activity-item --export
 ```

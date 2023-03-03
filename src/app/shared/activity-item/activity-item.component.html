@@ -1,0 +1,7 @@
+<span> {{ activity.title }} </span>
+<span> 📅 {{ activity.date }} </span>
+<span> 🗺️ {{ activity.location }} </span>
+<span>
+  💸 {{ activity.price | currency : "EUR" }}
+  <span *ngIf="activity.price <= 100"> 🎀 </span>
+</span>

@@ -1,16 +1,10 @@
 <app-header></app-header>
 <main>
-  {{ activities | json }}
+  <!-- {{ activities | json }} -->
   <h3>Activities list</h3>
   <li *ngFor="let activity of activities">
     <!-- {{ activity | json }} -->
-    <span> {{ activity.title }} </span>
-    <span> 📅 {{ activity.date }} </span>
-    <span> 🗺️ {{ activity.location }} </span>
-    <span>
-      💸 {{ activity.price | currency : "EUR" }}
-      <span *ngIf="activity.price <= 100"> 🎀 </span>
-    </span>
+    <app-activity-item [activity]="activity"></app-activity-item>
   </li>
 </main>
 <app-footer></app-footer>
