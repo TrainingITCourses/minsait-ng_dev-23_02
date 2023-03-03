@@ -1,4 +1,4 @@
-<span> {{ activity.title }} </span>
+<a [routerLink]="['activities', activity.title]"> {{ activity.title }} </a>
 <span> 📅 {{ activity.date }} </span>
 <span> 🗺️ {{ activity.location }} </span>
 <span>

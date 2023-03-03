@@ -69,3 +69,5 @@ ng g m login --route=auth/login -m=app
 
 ng g s core/activities
 ng g m activities --route=activities -m=app
+
+ng g m activity --route=activities/:title -m=app
