@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ActivitiesService } from '../core/activities.service';
+import { CurrencyService } from '../core/currency.service';
 
 @Component({
   selector: 'app-activity',
@@ -10,8 +11,13 @@ import { ActivitiesService } from '../core/activities.service';
 export class ActivityComponent {
   activity: any = {};
 
-  constructor(activitiesService: ActivitiesService, route: ActivatedRoute) {
+  constructor(
+    activitiesService: ActivitiesService,
+    route: ActivatedRoute,
+    currencyService: CurrencyService
+  ) {
     const title = route.snapshot.paramMap.get('title') || '';
     this.activity = activitiesService.getByTitle(title);
+    this.activity.priceEUR = currencyService.convert(this.activity.price);
   }
 }
