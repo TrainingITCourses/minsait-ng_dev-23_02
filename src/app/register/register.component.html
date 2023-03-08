@@ -1,1 +1,39 @@
-<p>register works!</p>
+<h2>{{ pageTitle }}</h2>
+<form [formGroup]="formGroup">
+  <fieldset>
+    <div>
+      <label for="fullName">Full Name</label>
+      <input
+        id="fullName"
+        name="fullName"
+        type="text"
+        formControlName="fullName"
+      />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" formControlName="email" />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        formControlName="password"
+      />
+    </div>
+    <div>
+      <label for="repeatedPassword">Repeat Password</label>
+      <input
+        id="repeatedPassword"
+        name="repeatedPassword"
+        type="password"
+        formControlName="repeatedPassword"
+      />
+    </div>
+  </fieldset>
+  <button (click)="onRegister()">Register me</button>
+</form>
+
+<pre>{{ formGroup.value | json }}</pre>
