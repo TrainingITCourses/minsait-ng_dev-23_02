@@ -35,7 +35,7 @@ ng g m layout
 ng g c layout/footer
 # export footer component
 # move header to layout module
-# generate a copyright component
+# 🫵🏼 practice: generate a copyright component
 ng g c layout/copyright
 ```
 
@@ -47,7 +47,7 @@ ng g m shared
 # create an exported link component
 ng g c shared/link --export
 # import module shared in layout module
-# create an activity-item component
+# 🫵🏼 practice: create an activity-item component
 ng g c shared/activity-item --export
 ```
 
@@ -62,12 +62,25 @@ ng g c contact
 ng g m about --routing
 # with its component
 ng g c about
-# create a lazy module with routing
+# create a lazy module with routing pointing to register
 ng g m register --route=auth/register -m=app
+# 🫵🏼 practice: create a lazy module with routing pointing to login
 ng g m login --route=auth/login -m=app
 ```
 
-ng g s core/activities
-ng g m activities --route=activities -m=app
+## Services
 
+```bash
+# create a service
+ng g s core/activities
+# consume service in home component
+# create a lazy module with routing pointing to activities
+# consume service in activities component
+ng g m activities --route=activities -m=app
+# create a lazy module with parameters
+# consume service in activity component
 ng g m activity --route=activities/:title -m=app
+# 🫵🏼 practice: create a service for currency conversion
+```
+
+## Forms
