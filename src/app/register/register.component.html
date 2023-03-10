@@ -1,5 +1,5 @@
 <h2>{{ pageTitle }}</h2>
-<form [formGroup]="registerForm">
+<form [formGroup]="form">
   <fieldset>
     <div>
       <label for="fullName">Full Name</label>
@@ -61,9 +61,7 @@
       }}</span>
     </div>
   </fieldset>
-  <button (click)="onRegister()" [disabled]="registerForm.invalid">
-    Register me
-  </button>
+  <button (click)="onRegister()" [disabled]="form.invalid">Register me</button>
 </form>
 
-<pre>{{ registerForm.value | json }}</pre>
+<pre>{{ form.value | json }}</pre>

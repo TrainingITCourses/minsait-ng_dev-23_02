@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { FormBase } from '../core/form.class';
 import { FormsService } from '../core/forms.service';
 
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent extends FormBase {
   pageTitle = 'Login page';
 
-  loginForm: FormGroup;
-
-  constructor(fb: FormBuilder, private fs: FormsService) {
-    this.loginForm = fb.group({
+  constructor(fb: FormBuilder, fs: FormsService) {
+    super();
+    super.fs = fs;
+    super.form = fb.group({
       email: [
         '',
         [Validators.required, Validators.email, Validators.minLength(4)],
@@ -25,14 +26,6 @@ export class LoginComponent {
   }
 
   onRegister() {
-    console.log('sending data to server', this.loginForm.value);
-  }
-
-  hasErrorMessage(formControlName: string): boolean {
-    return this.fs.hasErrorMessage(this.loginForm, formControlName);
-  }
-
-  getErrorMessage(formControlName: string): string {
-    return this.fs.getErrorMessage(this.loginForm, formControlName);
+    console.log('sending data to server', this.form.value);
   }
 }

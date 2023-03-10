@@ -1,5 +1,5 @@
 <h2>{{ pageTitle }}</h2>
-<form [formGroup]="loginForm">
+<form [formGroup]="form">
   <fieldset>
     <div>
       <label for="email">Email</label>
@@ -26,4 +26,4 @@
   <button (click)="onRegister()">Login me</button>
 </form>
 
-<pre>{{ loginForm.value | json }}</pre>
+<pre>{{ form.value | json }}</pre>
