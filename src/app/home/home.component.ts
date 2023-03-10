@@ -7,7 +7,11 @@ import { ActivitiesService } from '../core/activities.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  activities: any[] = this.activitiesService.activities;
+  activities: any[] = [];
 
-  constructor(private activitiesService: ActivitiesService) {}
+  constructor(activitiesService: ActivitiesService) {
+    activitiesService.getActivities().subscribe((data) => {
+      this.activities = data;
+    });
+  }
 }

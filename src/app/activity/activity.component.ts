@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
 import { ActivitiesService } from '../core/activities.service';
 import { CurrencyService } from '../core/currency.service';
 
@@ -17,7 +18,19 @@ export class ActivityComponent {
     currencyService: CurrencyService
   ) {
     const title = route.snapshot.paramMap.get('title') || '';
-    this.activity = activitiesService.getByTitle(title);
-    this.activity.priceEUR = currencyService.convert(this.activity.price);
+
+    activitiesService
+      .getActivities()
+      .pipe(
+        map((activities) => {
+          return activities.find((a) => a.title === title);
+        })
+      )
+      .subscribe((activity) => {
+        this.activity = activity;
+      });
+
+    // this.activity = activitiesService.getByTitle(title);
+    // this.activity.priceEUR = currencyService.convert(this.activity.price);
   }
 }
