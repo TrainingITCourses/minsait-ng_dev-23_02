@@ -84,3 +84,10 @@ ng g m activity --route=activities/:title -m=app
 ```
 
 ## Forms
+
+```
+# register form
+# 🫵🏼 practice: login form
+# validate register form
+# 🫵🏼 practice: validate login form (extract common code to a service)
+```

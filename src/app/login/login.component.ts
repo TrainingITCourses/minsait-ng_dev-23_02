@@ -8,12 +8,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class LoginComponent {
   pageTitle = 'Login page';
 
-  loginForm: FormGroup = this.fb.group({
-    email: '',
-    password: '1234',
-  });
+  loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(fb: FormBuilder) {
+    this.loginForm = fb.group({
+      email: '',
+      password: '1234',
+    });
+  }
 
   onRegister() {
     console.log('sending data to server', this.loginForm.value);

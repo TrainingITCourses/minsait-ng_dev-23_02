@@ -9,10 +9,16 @@
         type="text"
         formControlName="fullName"
       />
+      <span *ngIf="hasErrorMessage('fullName')">{{
+        getErrorMessage("fullName")
+      }}</span>
     </div>
     <div>
       <label for="email">Email</label>
       <input id="email" name="email" type="email" formControlName="email" />
+      <span *ngIf="hasErrorMessage('email')">{{
+        getErrorMessage("email")
+      }}</span>
     </div>
     <div>
       <label for="password">Password</label>
@@ -22,6 +28,9 @@
         type="password"
         formControlName="password"
       />
+      <span *ngIf="hasErrorMessage('password')"
+        >{{ getErrorMessage("password") }}
+      </span>
     </div>
     <div>
       <label for="repeatedPassword">Repeat Password</label>
@@ -31,9 +40,26 @@
         type="password"
         formControlName="repeatedPassword"
       />
+      <span *ngIf="hasErrorMessage('repeatedPassword')">{{
+        getErrorMessage("repeatedPassword")
+      }}</span>
+    </div>
+    <div>
+      <label for="acceptedTerms">Accept Terms</label>
+      <input
+        id="acceptedTerms"
+        name="acceptedTerms"
+        type="checkbox"
+        formControlName="acceptedTerms"
+      />
+      <span *ngIf="hasErrorMessage('acceptedTerms')">{{
+        getErrorMessage("acceptedTerms")
+      }}</span>
     </div>
   </fieldset>
-  <button (click)="onRegister()">Register me</button>
+  <button (click)="onRegister()" [disabled]="registerForm.invalid">
+    Register me
+  </button>
 </form>
 
 <pre>{{ registerForm.value | json }}</pre>
