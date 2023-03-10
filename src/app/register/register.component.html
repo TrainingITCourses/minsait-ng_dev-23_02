@@ -9,16 +9,18 @@
         type="text"
         formControlName="fullName"
       />
-      <span *ngIf="hasErrorMessage('fullName')">{{
-        getErrorMessage("fullName")
-      }}</span>
+      <app-form-error
+        [hasErrorMessage]="hasErrorMessage('fullName')"
+        [errorMessage]="getErrorMessage('fullName')"
+      ></app-form-error>
     </div>
     <div>
       <label for="email">Email</label>
       <input id="email" name="email" type="email" formControlName="email" />
-      <span *ngIf="hasErrorMessage('email')">{{
-        getErrorMessage("email")
-      }}</span>
+      <app-form-error
+        [hasErrorMessage]="hasErrorMessage('email')"
+        [errorMessage]="getErrorMessage('email')"
+      ></app-form-error>
     </div>
     <div>
       <label for="password">Password</label>
@@ -28,9 +30,10 @@
         type="password"
         formControlName="password"
       />
-      <span *ngIf="hasErrorMessage('password')"
-        >{{ getErrorMessage("password") }}
-      </span>
+      <app-form-error
+        [hasErrorMessage]="hasErrorMessage('password')"
+        [errorMessage]="getErrorMessage('password')"
+      ></app-form-error>
     </div>
     <div>
       <label for="repeatedPassword">Repeat Password</label>
@@ -40,9 +43,10 @@
         type="password"
         formControlName="repeatedPassword"
       />
-      <span *ngIf="hasErrorMessage('repeatedPassword')">{{
-        getErrorMessage("repeatedPassword")
-      }}</span>
+      <app-form-error
+        [hasErrorMessage]="hasErrorMessage('repeatedPassword')"
+        [errorMessage]="getErrorMessage('repeatedPassword')"
+      ></app-form-error>
     </div>
     <div>
       <label for="acceptedTerms">Accept Terms</label>

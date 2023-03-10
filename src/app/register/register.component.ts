@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { FormsService } from '../core/forms.service';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +35,7 @@ export class RegisterComponent {
     acceptedTerms: [true, Validators.requiredTrue],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private fs: FormsService) {}
 
   onRegister() {
     const password = this.registerForm.controls['password'].value;
@@ -50,12 +51,10 @@ export class RegisterComponent {
   }
 
   hasErrorMessage(formControlName: string): boolean {
-    const control = this.registerForm.controls[formControlName];
-    return control.invalid && (control.touched || control.dirty);
+    return this.fs.hasErrorMessage(this.registerForm, formControlName);
   }
 
   getErrorMessage(formControlName: string): string {
-    const control = this.registerForm.controls[formControlName];
-    return '❗ ' + JSON.stringify(control.errors);
+    return this.fs.getErrorMessage(this.registerForm, formControlName);
   }
 }
