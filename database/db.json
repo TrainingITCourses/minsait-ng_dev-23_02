@@ -61,5 +61,14 @@
       "userId": 5
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "elon@tesla.com",
+      "password": "$2a$10$qembs9F.9U5GUSS4qKkpn.DwSZ.d56YS4HjIyHZDpmXvgWX5JEDN2",
+      "fullName": "Elon",
+      "repeatedPassword": "1234",
+      "acceptedTerms": true,
+      "id": 1
+    }
+  ]
 }

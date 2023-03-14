@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { FormBase } from '../core/form.class';
@@ -11,7 +12,7 @@ import { FormsService } from '../core/forms.service';
 export class RegisterComponent extends FormBase {
   pageTitle = 'Register page';
 
-  constructor(fb: FormBuilder, fs: FormsService) {
+  constructor(fb: FormBuilder, fs: FormsService, private http: HttpClient) {
     super();
     super.fs = fs;
     super.form = fb.group({
@@ -43,7 +44,14 @@ export class RegisterComponent extends FormBase {
         samePassword: 'Passwords do not match',
       });
     } else {
-      console.log('sending data to server', this.form.value);
+      console.log('😅 sending data to server', this.form.value);
+      this.http
+        .post<any>('http://localhost:3000/users', this.form.value)
+        .subscribe({
+          next: (data) => console.log('🏖️ received data from server', data),
+          error: (err) => console.log('🏖️ error', err),
+        });
+      console.log('🏖️ sent data to server', this.form.value);
     }
   }
 }
