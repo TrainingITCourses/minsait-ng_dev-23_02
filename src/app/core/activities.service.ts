@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Activity } from './models/activity.type';
 
 @Injectable({
   providedIn: 'root',
@@ -22,8 +24,8 @@ export class ActivitiesService {
 
   constructor(private http: HttpClient) {}
 
-  getActivities() {
-    return this.http.get<any[]>('http://localhost:3000/activities');
+  getActivities$(): Observable<Activity[]> {
+    return this.http.get<Activity[]>('http://localhost:3000/activities');
   }
 
   // getByTitle(title: string) {

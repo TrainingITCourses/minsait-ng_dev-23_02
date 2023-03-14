@@ -20,7 +20,7 @@ export class ActivityComponent {
     const title = route.snapshot.paramMap.get('title') || '';
 
     activitiesService
-      .getActivities()
+      .getActivities$()
       .pipe(
         map((activities) => {
           return activities.find((a) => a.title === title);

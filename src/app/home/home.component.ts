@@ -10,7 +10,7 @@ export class HomeComponent {
   activities: any[] = [];
 
   constructor(activitiesService: ActivitiesService) {
-    activitiesService.getActivities().subscribe((data) => {
+    activitiesService.getActivities$().subscribe((data) => {
       this.activities = data;
     });
   }

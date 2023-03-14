@@ -9,10 +9,19 @@ import { ActivitiesService } from '../core/activities.service';
 export class ActivitiesComponent {
   activities: any[] = [];
   error: any = null;
+
   constructor(activitiesService: ActivitiesService) {
-    activitiesService.getActivities().subscribe({
+    activitiesService.getActivities$().subscribe({
       next: (data) => (this.activities = data),
       error: (error) => (this.error = error),
+      complete: () => console.log('done'),
     });
+
+    // RxJs 5.x
+    // activitiesService.getActivities().subscribe(
+    //   (data) => (this.activities = data),
+    //   (error) => (this.error = error),
+    //   () => console.log('done')
+    // );
   }
 }
