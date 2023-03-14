@@ -25,7 +25,7 @@ export class RegisterComponent extends FormBase {
         [Validators.required, Validators.email, Validators.minLength(4)],
       ],
       password: [
-        '123456',
+        '1234',
         [Validators.required, Validators.minLength(4), Validators.maxLength(6)],
       ],
       repeatedPassword: [
