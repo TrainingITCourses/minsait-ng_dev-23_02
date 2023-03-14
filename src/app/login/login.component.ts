@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   pageTitle = 'Login page';
   serverUser: any;
+
   constructor(private http: HttpClient) {}
+
   onLogin(credentials: any) {
     console.log('sending data to server', credentials);
     this.http.post<any>('http://localhost:3000/login/', credentials).subscribe({

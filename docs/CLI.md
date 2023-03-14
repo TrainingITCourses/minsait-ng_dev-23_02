@@ -123,7 +123,7 @@ npx ng g c register/register-form
 
 ```bash
 # use picocss to style the app
-npm install picocss
+npm install @picocss/pico
 # add to angular.json
  "./node_modules/@picocss/pico/css/pico.min.css",
 ```
