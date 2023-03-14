@@ -1,4 +1,9 @@
 <h3>Activity detail</h3>
-<pre>
-  {{ activity | json }}
-</pre>
+<div *ngIf="activity; else notFound">
+  <pre>
+    {{ activity | json }}
+  </pre>
+  <label>id: </label>{{ activity.id }} <label>title: </label
+  >{{ activity.title }} <label>location: </label> {{ activity.location }}
+</div>
+<ng-template #notFound>🕳️ Not found</ng-template>

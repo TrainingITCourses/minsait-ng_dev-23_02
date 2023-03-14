@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
 import { ActivitiesService } from '../core/activities.service';
 import { CurrencyService } from '../core/currency.service';
+import { Activity } from '../core/models/activity.type';
 
 @Component({
   selector: 'app-activity',
@@ -10,7 +11,7 @@ import { CurrencyService } from '../core/currency.service';
   styleUrls: ['./activity.component.css'],
 })
 export class ActivityComponent {
-  activity: any = {};
+  activity: Activity | undefined;
 
   constructor(
     activitiesService: ActivitiesService,

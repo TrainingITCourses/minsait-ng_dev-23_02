@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivitiesService } from '../core/activities.service';
+import { Activity } from '../core/models/activity.type';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { ActivitiesService } from '../core/activities.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  activities: any[] = [];
+  activities: Activity[] = [];
 
   constructor(activitiesService: ActivitiesService) {
     activitiesService.getActivities$().subscribe((data) => {

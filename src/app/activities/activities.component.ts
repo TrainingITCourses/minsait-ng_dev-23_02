@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivitiesService } from '../core/activities.service';
+import { Activity } from '../core/models/activity.type';
 
 @Component({
   selector: 'app-activities',
@@ -7,7 +8,7 @@ import { ActivitiesService } from '../core/activities.service';
   styleUrls: ['./activities.component.css'],
 })
 export class ActivitiesComponent {
-  activities: any[] = [];
+  activities: Activity[] = [];
   error: any = null;
 
   constructor(activitiesService: ActivitiesService) {
