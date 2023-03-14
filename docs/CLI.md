@@ -105,6 +105,7 @@ ng g c shared/form-error --export
 # generate users service
 ng g s core/users
 # post a new user on register service (use @Output)
+npx ng g c register/register-form
 # 🫵🏼 practice: use httpClient on login service to login (use @Output)
 ```
 
