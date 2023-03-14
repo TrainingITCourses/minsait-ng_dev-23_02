@@ -1,31 +1,22 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { FormBase } from '../core/form.class';
-import { FormsService } from '../core/forms.service';
 
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent extends FormBase {
+export class LoginComponent {
   pageTitle = 'Login page';
-
-  constructor(fb: FormBuilder, fs: FormsService) {
-    super();
-    super.fs = fs;
-    super.form = fb.group({
-      email: [
-        '',
-        [Validators.required, Validators.email, Validators.minLength(4)],
-      ],
-      password: [
-        '',
-        [Validators.required, Validators.minLength(4), Validators.maxLength(6)],
-      ],
+  serverUser: any;
+  constructor(private http: HttpClient) {}
+  onLogin(credentials: any) {
+    console.log('sending data to server', credentials);
+    this.http.post<any>('http://localhost:3000/login/', credentials).subscribe({
+      next: (data) => {
+        console.log('received data from server', data);
+        this.serverUser = data;
+      },
+      error: (err) => console.log('error', err),
     });
-  }
-
-  onRegister() {
-    console.log('sending data to server', this.form.value);
   }
 }

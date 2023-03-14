@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+  <fieldset>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" formControlName="email" />
+      <app-form-error
+        [hasErrorMessage]="hasErrorMessage('email')"
+        [errorMessage]="getErrorMessage('email')"
+      ></app-form-error>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        formControlName="password"
+      />
+      <app-form-error
+        [hasErrorMessage]="hasErrorMessage('password')"
+        [errorMessage]="getErrorMessage('password')"
+      ></app-form-error>
+    </div>
+  </fieldset>
+  <button (click)="onClick()">Login me</button>
+</form>
